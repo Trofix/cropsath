@@ -24,3 +24,32 @@ if ($allowedSetupIP == $_SERVER['REMOTE_ADDR']){
     echo "<center><h1>You are not allowed to view this page.</h1></center>";
     die();
 }
+
+if (!isset($_POST['myroot']) && !isset($_POST['adminname']) && !isset($_POST['adminpwd']) && !isset($_POST['pagename'])) {
+    echo "<center><h1>You didn't fill all the required fields.</h1></center>";
+    die();
+}
+
+if (!strlen(trim($_POST['myroot'])) > 0 && !strlen(trim($_POST['adminname'])) > 0 && !strlen(trim($_POST['adminpwd'])) > 0 && !strlen(trim($_POST['pagename'])) > 0 ){
+    echo "<center><h1>You didn't fill all the required fields.</h1></center>";
+    die();
+}
+
+$myroot = $_POST['myroot'];
+$adminname = $_POST['adminname'];
+$adminpwd = $_POST['adminpwd'];
+$pagename = $_POST['pagename'];
+
+$config->pagename = $pagename;
+
+$alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+$pass = array(); //remember to declare $pass as an array
+$alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+for ($i = 0; $i < 8; $i++) {
+    $n = rand(0, $alphaLength);
+    $pass[] = $alphabet[$n];
+}
+
+$gameBoardPass = implode($pass); //turn the array into a string
+
+$config->gameBoardPass = $gameBoardPass;
