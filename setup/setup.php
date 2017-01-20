@@ -68,7 +68,17 @@ if($conn->connect_error){
     die();
 }
 
-$sql = "CREATE USER ? IDENTIFIED BY ?";
+$sql = "CREATE USER ?@'localhost' IDENTIFIED BY ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ss", $pagename, $gameBoardPass);
-$stmt->execute();
+$result = $stmt->execute();
+
+if ($result === FALSE){
+    echo "<center><h1>There was a problem with creating the user profile.</h1></center>";
+    die();
+}
+
+$sql = "CREATE DATABASE ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $pagename);
+$result = $stmt->execute();
