@@ -53,3 +53,22 @@ for ($i = 0; $i < 8; $i++) {
 $gameBoardPass = implode($pass); //turn the array into a string
 
 $config->gameBoardPass = $gameBoardPass;
+
+if (!isset($config->databaseIP) || $config == "Insert MYSQL server IP here"){
+    echo "<center><h1>You haven't configured Cropsath properly. Please specify all the values in config.json.</h1></center>";
+    die();
+}
+
+$conn = new mysqli($config->databaseIP, "root", $myroot);
+
+if($conn->connect_error){
+    echo "<center><h1>Failed to connect to MYSQL server:</h1><p>";
+    echo $conn->connect_error;
+    echo "</p></center>";
+    die();
+}
+
+$sql = "CREATE USER ? IDENTIFIED BY ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $pagename, $gameBoardPass);
+$stmt->execute();
