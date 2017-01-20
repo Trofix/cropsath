@@ -74,7 +74,7 @@ $stmt->bind_param("ss", $pagename, $gameBoardPass);
 $result = $stmt->execute();
 
 if ($result === FALSE){
-    echo "<center><h1>There was a problem with creating the user profile.</h1></center>";
+    echo "<center><h1>There was a problem with creating the user profile.</h1><h2><b>Please, DO NOT use spaces in your pagename.</b></h2></center>";
     die();
 }
 
@@ -82,3 +82,48 @@ $sql = "CREATE DATABASE ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $pagename);
 $result = $stmt->execute();
+
+if ($result === FALSE){
+    echo "<center><h1>There was a problem with creating the page's database.</h1><h2><b>Please, DO NOT use spaces in your pagename.</b></h2></center>";
+    die();
+}
+
+$sql = "GRANT UPDATE, SELECT, INSERT ON ?.* TO ?@'localhost'";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $pagename, $pagename);
+$result = $stmt->execute();
+
+if ($result === FALSE){
+    echo "<center><h1>There was a problem with granting permission.</h1><h2><b>Please, DO NOT use spaces in your pagename.</b></h2></center>";
+    die();
+}
+
+$sql = "CREATE TABLE ?.users ( id INT(6) AUTO_INCREMENT PRIMARY KEY, username VARCHAR(64), password VARCHAR(255) )";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $pagename);
+$result = $stmt->execute();
+
+if ($result === FALSE){
+    echo "<center><h1>There was a problem with creating 'users' table.</h1><h2><b>Please, DO NOT use spaces in your pagename.</b></h2></center>";
+    die();
+}
+
+$sql = "CREATE TABLE ?.comments ( user INT(6), id INT(6), parent ID INT(6) )";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $pagename);
+$result = $stmt->execute();
+
+if ($result === FALSE){
+    echo "<center><h1>There was a problem with creating 'comments' table.</h1><h2><b>Please, DO NOT use spaces in your pagename.</b></h2></center>";
+    die();
+}
+
+$sql = "FLUSH PRIVILIGES";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $pagename);
+$result = $stmt->execute();
+
+if ($result === FALSE){
+    echo "<center><h1>There was a problem with creating 'users' table.</h1><h2><b>Please, DO NOT use spaces in your pagename.</b></h2></center>";
+    die();
+}
