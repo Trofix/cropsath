@@ -13,6 +13,11 @@ $config = json_decode(file_get_contents("config.json"));
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     </head>
     <body>
+        <style>
+            @media screen and (min-width: 768px){
+                .rwd-break { display:none; }
+            }
+        </style>
         <div class="header">
            <center>
                <img src="logo.png">
