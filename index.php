@@ -6,7 +6,7 @@
 
 include_once "include.php";
 
-$conn = new mysqli($config->sqlserv, $config->sqluser, $config->sqlpass, $config->pageName);
+$conn = new mysqli($config->sqlserv, $config->sqluser, $config->sqlpass, $config->dbName);
 
 if ($conn->connecterror){
   echo "<center><h1>Failed to connect to database.</h1></center>";
