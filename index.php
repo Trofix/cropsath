@@ -20,7 +20,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0){
   //output data of each row in bootstrap cards
   while($row = $result->fetch_assoc()) {
-    echo "<div class=\"card\"><div class=\"card-block\"><h4 class=\"card-text\">" . $row["questionName"] . "</h4></div></div>";
+    echo "<div class=\"card\" style=\"width: 20rem; display: table-cell;\"><div class=\"card-block\"><h4 class=\"card-text\">" . $row["questionName"] . "</h4></div></div>";
   }
 } else {
   echo "<center><h1>No questions found.</h1></center>";
