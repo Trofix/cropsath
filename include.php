@@ -14,8 +14,10 @@ $config = json_decode(file_get_contents("config.json"));
     </head>
     <body>
         <style>
-            @media screen and (min-width: 768px){
-                .rwd-break { display:none; }
+            @media screen and (min-width: 480px){
+                .responsive-thingy {
+                    width: 90vw;
+                }
             }
         </style>
         <div class="header">
