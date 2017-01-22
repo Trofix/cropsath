@@ -23,3 +23,5 @@ CREATE TABLE questions ( id int AUTO_INCREMENT PRIMARY KEY, questionName VARCHAR
 GRANT SELECT, INSERT, UPDATE ON dbName.* TO 'userName'@'webServerIP';
 ``` 
 ## Automatic setting up (BETA) (DANGER)
+ 1. Use the [easyCropsath](https://github.com/Trofix/easy-cropsath) made for your webserver's OS.
+ 2. Continue manual setting up from step 4.
