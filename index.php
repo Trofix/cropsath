@@ -21,7 +21,7 @@ if ($result->num_rows > 0){
   echo "<div style=\"width:100%;\">";
   //output data of each row in bootstrap cards
   while($row = $result->fetch_assoc()) {
-    echo "<div class=\"card\" style=\"width: 20rem; display: table-cell;\"><div class=\"card-block\"><h4 class=\"card-text\">" . $row["questionName"] . "</h4></div></div>";
+    echo "<div class=\"card\" style=\"width: 20rem; display: table-cell;\"><div class=\"card-block\"><h4 class=\"card-text\">" . $row["questionName"] . "</h4></div></div><br class=\"rwd-break\">";
   }
   echo "</div>";
 } else {
