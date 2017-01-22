@@ -1,0 +1,7 @@
+{
+  "pageName": "Example",
+  "sqlServ": "localhost",
+  "sqlUser": "exampleUser",
+  "sqlPass": "examplePass123",
+  "dbName": "exampleDB"
+}
