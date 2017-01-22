@@ -1,6 +1,9 @@
 # cropsath
 Cropsath is the perfect social page for creators, who want to get responses from their fans.
 
+# To-do
+ - [ ] Line break when page is vertivally full.
+
 # Setting up
 ## Manual setting up
  1. **Install Apache.**
