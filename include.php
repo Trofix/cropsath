@@ -22,7 +22,7 @@ session_start();
         </style>
         <div class="header">
            <center>
-               <img src="logo.png">
+               <a href="index.php"><img src="logo.png"></a>
                <?php if (!isset($_SESSION["uname"]) && !isset($_SESSION["uid"]) && strlen(trim($_SESSION["uname"])) == 0 && strlen(trim($_SESSION["uid"])) == 0) { ?>
                 <p><a href="login.php">Login</a> - <a href="register.php">Register</a></p>
                <?php } ?>
