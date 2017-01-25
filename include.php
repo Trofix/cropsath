@@ -25,12 +25,12 @@ session_start();
                <a href="index.php"><img src="logo.png"></a>
                <p>
                <?php if (!isset($_SESSION["uname"]) && !isset($_SESSION["uid"]) && !isset($_SESSION["admin"]) && strlen(trim($_SESSION["uname"])) == 0 && strlen(trim($_SESSION["uid"])) == 0) { ?>
-                <a href="login.php">Login</a> - <a href="register.php">Register</a>
+                <a href="login.php" class="btn btn-warning">Login</a> <a href="register.php" class="btn btn-success">Register</a>
                <?php } else { ?>
                 <?php if ($_SESSION["admin"] == 1) { ?>
-                     <a href="ask.php">Ask question</a> - 
+                     <a href="ask.php" class="btn btn-primary">Ask question</a> 
                 <?php } ?>
-                <a href="logout.php">Log out</a>
+                <a href="logout.php" class="btn btn-danger">Log out</a>
                <?php } ?>
                </p>
                <hr>
