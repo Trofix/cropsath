@@ -14,7 +14,7 @@ if ($conn->connect_error){
   die();
 }
 
-$sql = "SELECT questionName FROM questions ORDER BY id DESC";
+$sql = "SELECT questionName, id FROM questions ORDER BY id DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0){
@@ -22,7 +22,7 @@ if ($result->num_rows > 0){
   //output data of each row in bootstrap cards
   $breakIndex = 1;
   while($row = $result->fetch_assoc()) {
-    echo "<div class=\"card\" style=\"width: 20rem; display: table-cell;\"><div class=\"card-block\"><h4 class=\"card-text\">" . $row["questionName"] . "</h4></div></div>";
+    echo "<a href=\"question.php?id=" . $row["id"] . "\"><div class=\"card\" style=\"width: 20rem; display: table-cell;\"><div class=\"card-block\"><h4 class=\"card-text\">" . $row["questionName"] . "</h4></div></div></a>";
     $breakIndex++;
     if ($breakIndex == 6) { // "responsivity"
       echo "<br>";
