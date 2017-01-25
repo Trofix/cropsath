@@ -9,6 +9,8 @@ if (!isset($_GET["id"])) {
   die();
 }
 
+session_start();
+
 $conn = new mysqli($config->sqlServ, $config->sqlUser, $config->sqlPass, $config->dbName);
 
 if ($conn->connect_error){
@@ -40,11 +42,10 @@ if ($stmt->num_rows == 1){
   $commentObject = json_decode($comments);
   
   if($commentObject === NULL){
-    echo "<h2>An error happened while decoding comments.</h2>";
-    die();
+    echo "<h2>No comments found.</h2>";
+  } else {
+    echo "<h3>Comments:</h3>";
   }
-  
-  echo "<h3>Comments:</h3>";
   
   foreach ($commentObject->comments as $comment) {
     echo "<p>" . $comment->user . " - " . $comment->text . "</p>";
