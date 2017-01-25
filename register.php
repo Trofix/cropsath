@@ -15,7 +15,7 @@ include_once "include.php";
         <p>E-mail address:</p>
         <input type="text" name="email" required>
         <br>
-        <input type="submit" value="Register">
+        <input type="submit" name="submit" value="Register" class="btn btn-primary">
       </form>
     </center>
   </body>
