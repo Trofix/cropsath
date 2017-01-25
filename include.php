@@ -23,9 +23,16 @@ session_start();
         <div class="header">
            <center>
                <a href="index.php"><img src="logo.png"></a>
-               <?php if (!isset($_SESSION["uname"]) && !isset($_SESSION["uid"]) && strlen(trim($_SESSION["uname"])) == 0 && strlen(trim($_SESSION["uid"])) == 0) { ?>
-                <p><a href="login.php">Login</a> - <a href="register.php">Register</a></p>
+               <p>
+               <?php if (!isset($_SESSION["uname"]) && !isset($_SESSION["uid"]) && !isset($_SESSION["admin"]) && strlen(trim($_SESSION["uname"])) == 0 && strlen(trim($_SESSION["uid"])) == 0) { ?>
+                <a href="login.php">Login</a> - <a href="register.php">Register</a>
+               <?php } else { ?>
+                <?php if ($_SESSION["admin"] == 1) { ?>
+                     <a href="ask.php">Ask question</a> - 
+                <?php } ?>
+                <a href="logout.php">Log out</a>
                <?php } ?>
+               </p>
                <hr>
            </center>
         </div>
