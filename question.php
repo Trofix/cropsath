@@ -47,11 +47,15 @@ if ($stmt->num_rows == 1){
     echo "<h3>Comments:</h3>";
   }
   
+  echo "<br>";
+  
   foreach ($commentObject->comments as $comment) {
     echo "<p>" . $comment->user . " - " . $comment->text . "</p>";
   }
   
-  echo "<form action=\"addcomment.php\" method=\"POST\"><input type=\"hidden\" name=\"id\" value=\"" . $_GET["id"] . "\"><input type=\"text\" name=\"comment\" value=\"Enter comment here...\"></form>";
+  echo "<br>";
+  
+  echo "<form action=\"addcomment.php\" method=\"POST\"><input type=\"hidden\" name=\"id\" value=\"" . $_GET["id"] . "\"><input type=\"text\" name=\"comment\" value=\"Enter comment here...\"><br><input type=\"submit\" value=\"Submit\"></form>";
   
   echo "</center>";
 } else {
