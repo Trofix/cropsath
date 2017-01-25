@@ -3,7 +3,7 @@ Cropsath is the perfect social page for creators, who want to get responses from
 
 # To-do
  - [x] Editing questions
- - [ ] Deleting questions
+ - [x] Deleting questions
 
 # Setting up
 ## Manual setting up
