@@ -7,7 +7,7 @@ include_once "include.php";
 session_start();
 
 //Check if user is logged in
-if (!isset($_SESSION["uname"]) && !isset($_SESSION["uid"]) && strlen(trim($_SESSION["uname"])) && strlen(trim($_SESSION["uid"]))) {
+if (!isset($_SESSION["uname"]) && !isset($_SESSION["uid"]) && strlen(trim($_SESSION["uname"])) == 0 && strlen(trim($_SESSION["uid"])) == 0) {
   echo "<center><h1>You are not logged in.</h1></center>";
   die();
 }
