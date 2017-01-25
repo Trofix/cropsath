@@ -47,7 +47,7 @@ if ($admin == 0){
 
 $sql = "INSERT INTO questions (questionName, questionText) VALUES (?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sss", $_POST["qname"], $_POST["qtext"]);
+$stmt->bind_param("ss", $_POST["qname"], $_POST["qtext"]);
 $result = $stmt->execute();
 if ($result === FALSE) {
   echo "<center><h1>An error happened with the SQL query.</h1><h2>" . $conn->error . "</h2></center>";
