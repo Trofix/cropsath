@@ -54,7 +54,7 @@ if ($stmt->num_rows == 1){
   }
   
   if ($_SESSION["admin"] == 1) {
-    echo "<a href=\"qdel.php?id=" . $_GET["id"] . "\" class=\"btn btn-danger\">Delete</a>";
+    echo "<a href=\"qdel.php?qid=" . $_GET["id"] . "\" class=\"btn btn-danger\">Delete</a>";
     echo "<br>";
   }
   
