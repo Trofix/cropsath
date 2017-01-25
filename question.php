@@ -55,7 +55,7 @@ if ($stmt->num_rows == 1){
   
   echo "<br>";
   
-  echo "<form action=\"addcomment.php\" method=\"POST\"><input type=\"hidden\" name=\"id\" value=\"" . $_GET["id"] . "\"><input type=\"text\" name=\"comment\" value=\"Enter comment here...\"><br><input type=\"submit\" value=\"Commit\"></form>";
+  echo "<form action=\"addcomment.php\" method=\"POST\"><input type=\"hidden\" name=\"id\" value=\"" . $_GET["id"] . "\"><input type=\"text\" name=\"comment\" value=\"Enter comment here...\"><br><input type=\"submit\" value=\"Comment\"></form>";
   
   echo "</center>";
 } else {
