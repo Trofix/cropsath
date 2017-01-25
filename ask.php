@@ -13,8 +13,8 @@ include_once "include.php";
         <input type="text" name="qname">
         <p>Question text:</p>
         <textarea name="qtext" cols="100" rows="5"></textarea>
-        <br>
-        <input type="submit" name="submit" value="Ask!">
+        <br><br>
+        <input type="submit" name="submit" value="Ask!" class="btn btn-primary">
       </form>
     </center>
   </body>
