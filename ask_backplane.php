@@ -36,7 +36,8 @@ $stmt->store_result();
 if ($stmt->num_rows > 0) {
   $stmt->fetch();
 } else {
-  echo "<center><h1>You were not found.</h1></center>"
+  echo "<center><h1>You were not found.</h1></center>";
+  die();
 }
 
 if ($admin == 0){
