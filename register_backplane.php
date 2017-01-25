@@ -22,6 +22,6 @@ if ($result === FALSE) {
   echo "<center><h1>An error happened with the SQL query.</h1><h2>" . $conn->error . "</h2><br><h2><a href=\"register.php\" class=\"btn btn-primary\">Back to registration.</a></h2></center>";
   die();
 } else {
-  echo "<center><h1>Registration successful!</h1><br><h2><a href=\"index.php\" class=\"btn btn-primary\">Back to homepage.</a></h2></center>";
+  echo "<center><h1>Registration successful!</h1><br><h2><a href=\"login.php\" class=\"btn btn-primary\">Go to login.</a></h2></center>";
 }
 ?>
