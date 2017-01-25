@@ -38,7 +38,7 @@ if ($stmt->num_rows == 1){
   //This is a temporary design
   echo "<h1>" . $questionName . "</h1>";
   echo "<br>";
-  echo "<p>" . $questionText . "</p>";
+  echo "<p>" . nl2br($questionText) . "</p>";
   $commentObject = json_decode($comments);
   
   if($commentObject === NULL){
