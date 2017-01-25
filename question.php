@@ -53,6 +53,11 @@ if ($stmt->num_rows == 1){
     echo "<p>" . $comment->user . " - " . $comment->text . "</p>";
   }
   
+  if (!isset($_SESSION["uname"]) && !isset($_SESSION["uid"]) && !isset($_SESSION["admin"]) && strlen(trim($_SESSION["uname"])) == 0 && strlen(trim($_SESSION["uid"])) == 0) {
+    echo "<br>";
+    echo "<a href=\"qdel.php?id=" . $_GET["id"] . "\" class=\"btn btn-danger\">Delete</a>";
+  }
+  
   echo "<br>";
   
   echo "<form action=\"addcomment.php\" method=\"POST\"><input type=\"hidden\" name=\"id\" value=\"" . $_GET["id"] . "\"><input type=\"text\" name=\"comment\" value=\"Enter comment here...\"><br><input type=\"submit\" value=\"Comment\"></form>";
