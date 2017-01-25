@@ -3,5 +3,6 @@
   "sqlServ": "localhost",
   "sqlUser": "exampleUser",
   "sqlPass": "examplePass123",
-  "dbName": "exampleDB"
+  "dbName": "exampleDB",
+  "langfile": "english.json"
 }
