@@ -47,7 +47,7 @@ if ($admin == 0){
 
 $sql = "UPDATE questions SET questionName = ?, questionText = ? WHERE id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $_POST["qname"], $_POST["qtext"]);
+$stmt->bind_param("sss", $_POST["qname"], $_POST["qtext"], $_POST["qid"]);
 $result = $stmt->execute();
 if ($result === FALSE) {
   echo "<center><h1>An error happened with the SQL query.</h1><h2>" . $conn->error . "</h2><br><h2><a href=\"qedit.php\" class=\"btn btn-primary\">Back to edit form.</a></h2></center>";
