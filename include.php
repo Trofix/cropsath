@@ -5,6 +5,8 @@
 //LAST MODIFIED: 2017.01.21.
 
 $config = json_decode(file_get_contents("config.json"));
+
+session_start();
 ?>
 <html>
     <head>
@@ -21,6 +23,9 @@ $config = json_decode(file_get_contents("config.json"));
         <div class="header">
            <center>
                <img src="logo.png">
+               <?php if (!isset($_SESSION["uname"]) && !isset($_SESSION["uid"]) && strlen(trim($_SESSION["uname"])) == 0 && strlen(trim($_SESSION["uid"])) == 0) { ?>
+                <p><a href="login.php">Login</a> - <a href="register.php">Register</a></p>
+               <?php } ?>
                <hr>
            </center>
         </div>
