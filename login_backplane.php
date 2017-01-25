@@ -18,7 +18,7 @@ if ($conn->connect_error){
   echo $conn->connect_error;
   die();
 }
-$sql = "SELECT id, password FROM users WHERE username = ?";
+$sql = "SELECT id, password, admin FROM users WHERE username = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $_POST["username"]);
 $result = $stmt->execute();
@@ -26,7 +26,7 @@ if ($result === FALSE) {
   echo "<center><h1>An error happened with the SQL query.</h1><h2>" . $conn->error . "</h2></center>";
   die();
 }
-$stmt->bind_result($id, $password);
+$stmt->bind_result($id, $password, $admin);
 $stmt->store_result();
 if ($stmt->num_rows == 1){
   $stmt->fetch();
@@ -36,6 +36,7 @@ if ($stmt->num_rows == 1){
   }
   $_SESSION["uid"] = $id;
   $_SESSION["uname"] = $_POST["username"];
+  $_SESSION["admin"] = $admin;
   echo "<center><h1>Login successful!</h1></center>";
 } else {
   if ($stmt->num_rows == 0){
