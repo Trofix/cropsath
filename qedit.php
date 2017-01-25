@@ -8,6 +8,7 @@ include_once "include.php";
   <body>
     <center>
       <form action="qedit_backplane.php" method="POST">
+        <input type="hidden" name="qid" value="<?php echo $_GET["id"]; ?>">
         <p>Question name:</p>
         <input type="text" name="qname">
         <p>Question text:</p>
