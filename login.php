@@ -13,7 +13,7 @@ include_once "include.php";
         <input type="text" name="username" required>
         <p>Password:</p>
         <input type="password" name="password" required>
-        <br>
+        <br><br>
         <input type="submit" name="submit" value="Login" class="btn btn-primary">
       </form>
     </center>
