@@ -66,3 +66,4 @@ if ($stmt->num_rows == 1){
   }
   die();
 }
+?>
