@@ -6,10 +6,11 @@ include_once "include.php";
 
 session_start();
 
-if (!isset($_GET["id"])) {
-  echo "<center><h1>Question not specified.</h1></center>";
+if (!isset($_POST["username"]) || !isset($_POST["username"]) || strlen(trim($_POST["username"])) == 0 || strlen(trim($_POST["password"])) == 0) {
+  echo "<center><h1>Required fields not specified.</h1></center>";
   die();
 }
+
 session_start();
 $conn = new mysqli($config->sqlServ, $config->sqlUser, $config->sqlPass, $config->dbName);
 if ($conn->connect_error){
