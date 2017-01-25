@@ -53,7 +53,7 @@ if ($stmt->num_rows == 1){
     echo "<p>" . $comment->user . " - " . $comment->text . "</p>";
   }
   
-  if (!isset($_SESSION["uname"]) && !isset($_SESSION["uid"]) && !isset($_SESSION["admin"]) && strlen(trim($_SESSION["uname"])) == 0 && strlen(trim($_SESSION["uid"])) == 0) {
+  if (!isset($_SESSION["uname"]) || !isset($_SESSION["uid"]) || !isset($_SESSION["admin"]) || strlen(trim($_SESSION["uname"])) == 0 || strlen(trim($_SESSION["uid"])) == 0) {
     echo "<br>";
     echo "<a href=\"qdel.php?id=" . $_GET["id"] . "\" class=\"btn btn-danger\">Delete</a>";
   }
