@@ -25,6 +25,7 @@ USE dbName;
 CREATE TABLE users ( id int AUTO_INCREMENT PRIMARY KEY, username VARCHAR(64), password VARCHAR(255), email VARCHAR(254), banned TINYINT(1), admin TINYINT(1) );
 CREATE TABLE questions ( id int AUTO_INCREMENT PRIMARY KEY, questionName VARCHAR(255) NOT NULL, questionText TEXT(65535), comments TEXT(65535) );
 GRANT SELECT, INSERT, UPDATE ON dbName.* TO 'userName'@'webServerIP';
+FLUSH PRIVILEGES;
 ``` 
 ## Automatic setting up (BETA) (DANGER)
  1. Use the [easyCropsath](https://github.com/Trofix/easy-cropsath) made for your webserver's OS.
