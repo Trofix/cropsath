@@ -9,12 +9,12 @@ include_once "include.php";
   <body>
     <center>
       <form action="login_backplane.php" method="POST">
-        <p>Username:</p>
+        <p><?php echo $langfile->username; ?></p>
         <input type="text" name="username" required>
-        <p>Password:</p>
+        <p><?php echo $langfile->password; ?></p>
         <input type="password" name="password" required>
         <br><br>
-        <input type="submit" name="submit" value="Login" class="btn btn-primary">
+        <input type="submit" name="submit" value="<?php echo $langfile->login; ?>" class="btn btn-primary">
       </form>
     </center>
   </body>
