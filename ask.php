@@ -12,7 +12,7 @@ include_once "include.php";
         <p>Question name:</p>
         <input type="text" name="qname">
         <p>Question text:</p>
-        <textarea name="qtext" cols="100" rows="5">
+        <textarea name="qtext" cols="100" rows="5"></textarea>
         <br>
         <input type="submit" name="submit" value="Ask!">
       </form>
