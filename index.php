@@ -20,13 +20,13 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0){
   echo "<center>";
   //output data of each row in bootstrap cards
-  $breakIndex
+  $breakIndex = 1;
   while($row = $result->fetch_assoc()) {
     echo "<div class=\"card\" style=\"width: 20rem; display: table-cell;\"><div class=\"card-block\"><h4 class=\"card-text\">" . $row["questionName"] . "</h4></div></div>";
     $breakIndex++;
     if ($breakIndex == 6) { // "responsivity"
       echo "<br>";
-      $breakIndex = 0;
+      $breakIndex = 1;
     }
   }
   echo "</center>";
