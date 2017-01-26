@@ -10,5 +10,5 @@ $_SESSION = array();
 
 session_destroy();
 
-echo "<center><h1>You have been logged out.</h1><br><h2><a href=\"index.php\" class=\"btn btn-primary\">Back to homepage.</a></h2></center>";
+echo "<center><h1>" . $langfile->logout_success . "</h1><br><h2><a href=\"index.php\" class=\"btn btn-primary\">" . $langfile->back_to_home . "</a></h2></center>";
 ?>

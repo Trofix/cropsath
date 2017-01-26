@@ -6,6 +6,8 @@
 
 $config = json_decode(file_get_contents("config.json"));
 
+$langfile = json_decode(file_get_contents("lang/" . $config->langfile));
+
 session_start();
 ?>
 <html>
@@ -25,12 +27,12 @@ session_start();
                <a href="index.php"><img src="logo.png"></a>
                <p>
                <?php if (!isset($_SESSION["uname"]) && !isset($_SESSION["uid"]) && !isset($_SESSION["admin"]) && strlen(trim($_SESSION["uname"])) == 0 && strlen(trim($_SESSION["uid"])) == 0) { ?>
-                <a href="login.php" class="btn btn-warning">Login</a> <a href="register.php" class="btn btn-success">Register</a>
+                <a href="login.php" class="btn btn-warning"><?php echo $langfile->login; ?></a> <a href="register.php" class="btn btn-success"><?php echo $langfile->register; ?></a>
                <?php } else { ?>
                 <?php if ($_SESSION["admin"] == 1) { ?>
-                     <a href="ask.php" class="btn btn-primary">Ask question</a> 
+                     <a href="ask.php" class="btn btn-primary"><?php echo $langfile->ask_question; ?></a> 
                 <?php } ?>
-                <a href="logout.php" class="btn btn-danger">Log out</a>
+                <a href="logout.php" class="btn btn-danger"><?php echo $langfile->logout; ?></a>
                <?php } ?>
                </p>
                <hr>
