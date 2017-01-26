@@ -9,12 +9,12 @@ include_once "include.php";
   <body>
     <center>
       <form action="ask_backplane.php" method="POST">
-        <p>Question name:</p>
+        <p><?php echo $langfile->q_name; ?></p>
         <input type="text" name="qname">
-        <p>Question text:</p>
+        <p><?php echo $langfile->q_text; ?></p>
         <textarea name="qtext" cols="100" rows="5"></textarea>
         <br><br>
-        <input type="submit" name="submit" value="Ask!" class="btn btn-primary">
+        <input type="submit" name="submit" value="<?php echo $langfile->ask; ?>" class="btn btn-primary">
       </form>
     </center>
   </body>
