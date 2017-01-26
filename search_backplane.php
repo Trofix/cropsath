@@ -21,7 +21,8 @@ if ($conn->connect_error){
 
 $sql = "SELECT questionName, id FROM questions LIKE ? ORDER BY id DESC";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $_GET["q"]);
+$query = "%" . $_GET["q"] . "%";
+$stmt->bind_param("i", $query);
 $result = $stmt->execute();
 
 if ($result === FALSE){
