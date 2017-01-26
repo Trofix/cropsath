@@ -32,7 +32,7 @@ if ($result->num_rows > 0){
   //output data of each row in bootstrap cards
   $breakIndex = 1;
   while($row = $result->fetch_assoc()) {
-    if(preg_match(".*" . $_GET["q"] . ".*", $row["questionName"])){
+    if(preg_match("~.*" . $_GET["q"] . ".*~", $row["questionName"])){
       echo "<a href=\"question.php?id=" . $row["id"] . "\"><div class=\"card\" style=\"width: 20rem; display: table-cell;\"><div class=\"card-block\"><h4 class=\"card-text\">" . $row["questionName"] . "</h4></div></div></a>";
       $breakIndex++;
       if ($breakIndex == 6) { // "responsivity"
