@@ -9,7 +9,7 @@ include_once "include.php";
 $conn = new mysqli($config->sqlServ, $config->sqlUser, $config->sqlPass, $config->dbName);
 
 if ($conn->connect_error){
-  echo "<center><h1>Failed to connect to database.</h1></center>";
+  echo "<center><h1>" . $langfile->db_conn_fail . "</h1></center>";
   echo $conn->connect_error;
   die();
 }
@@ -31,6 +31,6 @@ if ($result->num_rows > 0){
   }
   echo "</center>";
 } else {
-  echo "<center><h1>No questions found.</h1></center>";
+  echo "<center><h1>" . $langfile->no_q . "</h1></center>";
 }
 ?>
