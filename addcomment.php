@@ -8,20 +8,20 @@ session_start();
 
 //Check if user is logged in
 if (!isset($_SESSION["uname"]) && !isset($_SESSION["uid"]) && strlen(trim($_SESSION["uname"])) == 0 && strlen(trim($_SESSION["uid"])) == 0) {
-  echo "<center><h1>You are not logged in.</h1></center>";
+  echo "<center><h1>" . $langfile->not_log . "</h1></center>";
   die();
 }
 
 //Check if needed vars are specified
 if (!isset($_POST["id"]) && !isset($_POST["comment"]) && strlen(trim($_POST["id"])) && strlen(trim($_POST["comment"]))) {
-  echo "<center><h1>You haven't specified all needed fields.</h1></center>";
+  echo "<center><h1>" . $langfile->req_field_err . "</h1></center>";
   die();
 }
 
 //Init MYSQLi
 $conn = new mysqli($config->sqlServ, $config->sqlUser, $config->sqlPass, $config->dbName);
 if ($conn->connect_error){
-  echo "<center><h1>Failed to connect to database.</h1></center>";
+  echo "<center><h1>" . $langfile->db_conn_fail . "</h1></center>";
   echo $conn->connect_error;
   die();
 }
@@ -33,7 +33,7 @@ $stmt->bind_param("s", $_POST["id"]);
 $result = $stmt->execute();
 
 if ($result === FALSE) {
-  echo "<center><h1>An error happened with the SQL query.</h1><h2>" . $conn->error . "</h2></center>";
+  echo "<center><h1>" . $langfile->sql_query_error . "</h1><h2>" . $conn->error . "</h2></center>";
   die();
 }
 
@@ -70,16 +70,16 @@ if ($stmt->num_rows == 1){
   
   //Error checking
   if ($result === FALSE) {
-    echo "<center><h1>An error happened with the second SQL query.</h1><h2>" . $conn->error . "</h2></center>";
+    echo "<center><h1>" . $langfile->sql_query_error . "</h1><h2>" . $conn->error . "</h2></center>";
     die();
   } else {
-    echo "<center><h1>Commenting successful!</h1></center>";
+    echo "<center><h1>" . $langfile->comm_success . "</h1></center>";
   }
 } else {
   if ($stmt->num_rows == 0){
-    echo "<center><h1>Question not found.</h1></center>";
+    echo "<center><h1>" . $langfile->q_not_found . "</h1></center>";
   } else {
-    echo "<center><h1>An unexpected error happened.</h1><h2>Code: multiple_questions</h2></center>";
+    echo "<center><h1>" . $langfile->unx_err . "</h1><h2>" . $langfile->code . " multiple_questions</h2></center>";
   }
   die();
 }
