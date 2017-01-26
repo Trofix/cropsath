@@ -60,7 +60,7 @@ if ($stmt->num_rows == 1){
   
   echo "<br>";
   
-  echo "<form action=\"addcomment.php\" method=\"POST\"><input type=\"hidden\" name=\"id\" value=\"" . $_GET["id"] . "\"><input type=\"text\" name=\"comment\" value=\"" . $langfile->en_comm_here . "\" class=\"btn btn-primary\"><br><br><input type=\"submit\" value=\"" . $langfile->comm . "\"></form>";
+  echo "<form action=\"addcomment.php\" method=\"POST\"><input type=\"hidden\" name=\"id\" value=\"" . $_GET["id"] . "\"><input type=\"text\" name=\"comment\" value=\"" . $langfile->en_comm_here . "\"><br><br><input type=\"submit\" value=\"" . $langfile->comm . "\" class=\"btn btn-primary\"></form>";
   
   echo "</center>";
 } else {
