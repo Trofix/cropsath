@@ -29,6 +29,7 @@ session_start();
                <?php if (!isset($_SESSION["uname"]) && !isset($_SESSION["uid"]) && !isset($_SESSION["admin"]) && strlen(trim($_SESSION["uname"])) == 0 && strlen(trim($_SESSION["uid"])) == 0) { ?>
                 <a href="login.php" class="btn btn-warning"><?php echo $langfile->login; ?></a> <a href="register.php" class="btn btn-success"><?php echo $langfile->register; ?></a>
                <?php } else { ?>
+                <a href="search.php" class="btn btn-primary"><?php echo $langfile->search; ?></a>
                 <?php if ($_SESSION["admin"] == 1) { ?>
                      <a href="ask.php" class="btn btn-primary"><?php echo $langfile->ask_question; ?></a> 
                 <?php } ?>
