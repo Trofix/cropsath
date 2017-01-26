@@ -19,28 +19,26 @@ if ($conn->connect_error){
   die();
 }
 
-$sql = "SELECT questionName, id FROM questions WHERE questionName RLIKE ? ORDER BY id DESC";
-$stmt = $conn->prepare($sql);
-$query = ".*" . $_GET["q"] . ".*";
-$stmt->bind_param("i", $query);
-$result = $stmt->execute();
+$sql = "SELECT questionName, id FROM questions ORDER BY id DESC";
+$result = $conn->query($sql);
 
 if ($result === FALSE){
   echo "<center><h1>" . $langfile->sql_query_err . "</h1><h2>" . $conn->error . "</h2></center>";
   die();
 }
 
-$stmt->bind_result($questionName, $id);
-$stmt->store_result();
-
-if ($stmt->num_rows > 0){
+if ($result->num_rows > 0){
+  echo "<center>";
+  //output data of each row in bootstrap cards
   $breakIndex = 1;
-  while ($stmt->fetch()){
-    echo "<a href=\"question.php?id=" . $id . "\"><div class=\"card\" style=\"width: 20rem; display: table-cell;\"><div class=\"card-block\"><h4 class=\"card-text\">" . $questionName . "</h4></div></div></a>";
-    $breakIndex++;
-    if ($breakIndex == 6) { // "responsivity"
-      echo "<br>";
-      $breakIndex = 1;
+  while($row = $result->fetch_assoc()) {
+    if(preg_match(".*" . $_GET["q"] . ".*", $row["questionName"])){
+      echo "<a href=\"question.php?id=" . $row["id"] . "\"><div class=\"card\" style=\"width: 20rem; display: table-cell;\"><div class=\"card-block\"><h4 class=\"card-text\">" . $row["questionName"] . "</h4></div></div></a>";
+      $breakIndex++;
+      if ($breakIndex == 6) { // "responsivity"
+        echo "<br>";
+        $breakIndex = 1;
+      }
     }
   }
   echo "</center>";
