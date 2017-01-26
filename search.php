@@ -14,7 +14,7 @@ include_once "include.php";
         <p><?php echo $langfile->query; ?></p>
         <input type="text" name="q">
         <br><br>
-        <input type="submit" name="submit" value="<?php echo $langroom->search; ?>" class="btn btn-primary">
+        <input type="submit" name="submit" value="<?php echo $langfile->search; ?>" class="btn btn-primary">
       </form>
     </center>
   </body>
